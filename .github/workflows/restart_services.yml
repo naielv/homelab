@@ -1,0 +1,28 @@
+on:
+  schedule:
+    - cron: '14 3 */5 * *'
+  workflow_dispatch:
+
+jobs:
+  test_schedule:
+    runs-on: self-hosted
+    steps:
+      - name: Restart ZimaOS Containers
+        uses: fifsky/ssh-action@master
+        with:
+          user: root
+          host: zimaos.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command: |
+            casaos-cli app-management restart mariadb
+            casaos-cli app-management restart big-bear-homarr
+            casaos-cli app-management restart big-bear-pihole
+      - name: Restart Ei23 Containers
+        uses: fifsky/ssh-action@master
+        with:
+          user: pi
+          host: huevo23.ip.tech.eus # Huevo (Spanish) = Egg = Ei (German), Ei23 Server (got from ei23.com)
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command: |
+            cd ~/ei23.docker
+            docker compose restart
