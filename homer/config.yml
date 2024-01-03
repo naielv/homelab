@@ -20,7 +20,7 @@ message:
   style: "is-danger"
   title: "Conectividad Limitada"
   icon: "fa fa-exclamation-triangle"
-  content: "El router Vodafone no esta completamente operativo, Motivo: 'Services dhcp,http,https offline', Algunos dispositivos no tendran internet."
+  content: "El router Vodafone no esta completamente operativo, Algunos dispositivos no tendran internet, Motivo: 'Services dhcp,http,https offline'"
 links: []
 services:
   - name: "Automatización"
@@ -31,4 +31,19 @@ services:
         target: "_blank"
       - name: "Node-RED (Dashboard)"
         url: "https://nodered.ei.tech.eus/dashboard/tablet-cocina"
+        target: "_blank"
+  - name: "Red"
+    icon: "fas fa-wifi"
+    items:
+      - name: "Nginx Proxy Manager"
+        url: "https://nginxproxymanager.ei.tech.eus/"
+        target: "_blank"
+      - name: "Pi-Hole"
+        url: "https://pihole.ei.tech.eus/"
+        target: "_blank"
+      - name: "Router"
+        url: "http://192.168.0.1"
+        target: "_blank"
+      - name: "Repetidor"
+        url: "http://192.168.0.2"
         target: "_blank"

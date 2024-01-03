@@ -1,4 +1,4 @@
-name: Update Config Files
+name: Update Homer Config
 
 on:
   push:
