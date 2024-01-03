@@ -20,7 +20,7 @@ message:
   style: "is-danger"
   title: "Conectividad Limitada"
   icon: "fa fa-exclamation-triangle"
-  content: "El router Vodafone no esta completamente operativo, Motivo: 'Services dhcp,http,https offline'"
+  content: "El router Vodafone no esta completamente operativo, Motivo: 'Services dhcp,http,https offline', Algunos dispositivos no tendran internet."
 links: []
 services:
   - name: "Automatización"

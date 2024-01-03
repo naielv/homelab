@@ -22,4 +22,5 @@ jobs:
           source: './homer/*'
           target: '/var/lib/casaos_data/AppData2/big-bear-homer/assets/'
           overwrite: true
+          strip_components: 1
           tar_tmp_path: /var/lib/casaos_data/tmp
