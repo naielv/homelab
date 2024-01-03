@@ -21,5 +21,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './homer/*'
           target: '/var/lib/casaos_data/AppData2/big-bear-homer/assets/'
-          strip_components: 3
           overwrite: true
+          tar_tmp_path: /var/lib/casaos_data/tmp
