@@ -1,11 +1,11 @@
-name: Restart Services
+name: Timed Restart
 on:
   schedule:
     - cron: '14 3 */5 * *'
   workflow_dispatch:
 
 jobs:
-  test_schedule:
+  restart_services:
     runs-on: self-hosted
     steps:
       - name: Restart ZimaOS Containers
@@ -25,5 +25,5 @@ jobs:
           host: huevo23.ip.tech.eus # Huevo (Spanish) = Egg = Ei (German), Ei23 Server (got from ei23.com)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
-            cd ~/ei23.docker
+            cd ~/ei23-docker
             docker compose restart
