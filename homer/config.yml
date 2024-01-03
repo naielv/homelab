@@ -1,0 +1,34 @@
+---
+title: "Kasa Homelab"
+subtitle: false
+documentTitle: "Kasa"
+icon: "fas fa-home"
+header: true
+footer: false
+columns: 3
+connectivityCheck: true
+defaults:
+  layout: columns
+  colorTheme: auto
+theme: default
+message:
+#  url: https://api.chucknorris.io/jokes/random
+#  mapping:
+#    title: 'id'
+#    content: 'value'
+#  refreshInterval: 10000
+  style: "is-danger"
+  title: "Conectividad Limitada"
+  icon: "fa fa-exclamation-triangle"
+  content: "El router Vodafone no esta completamente operativo, Motivo: 'Services dhcp,http,https offline'"
+links: []
+services:
+  - name: "Automatización"
+    icon: "fas fa-home"
+    items:
+      - name: "Home Assistant"
+        url: "https://homeassistant.ei.tech.eus/"
+        target: "_blank"
+      - name: "Node-RED (Dashboard)"
+        url: "https://nodered.ei.tech.eus/dashboard/tablet-cocina"
+        target: "_blank"
