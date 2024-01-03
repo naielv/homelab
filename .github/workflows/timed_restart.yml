@@ -25,5 +25,6 @@ jobs:
           host: huevo23.ip.tech.eus # Huevo (Spanish) = Egg = Ei (German), Ei23 Server (got from ei23.com)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
-            cd ~/ei23-docker
-            docker compose restart
+            docker restart cups
+            # cd ~/ei23-docker
+            # docker compose restart
