@@ -35,4 +35,4 @@ jobs:
           user: pi
           host: huevo23.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command: bash ~/ei23.sh docs
+          command: bash ~/ei23.sh docs && sudo chmod -R 777 ei23-docker/volumes/ei23/docs/site/

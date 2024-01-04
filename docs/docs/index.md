@@ -1,5 +1,5 @@
 # homelab
-Mi Homelab
+Mi Homelab (Versión Enero 2024)
 
 - [![Timed Restart](https://github.com/naielv/homelab/actions/workflows/timed_restart.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/timed_restart.yml)
 - [![Update Docker Config](https://github.com/naielv/homelab/actions/workflows/docker_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/docker_update.yml)
@@ -18,6 +18,7 @@ Mi Homelab
     * Nextcloud
     * Pi-Hole
     * Cups Server
+    * Paperless-NGX
 ### Tareas
 - Migrar datos a mergerfs
 
