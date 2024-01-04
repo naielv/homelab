@@ -62,6 +62,3 @@ services:
       - name: "Impresoras"
         url: "https://cups.ei.tech.eus/"
         target: "_blank"
-      - name: "Impresoras"
-        url: "https://cups.ei.tech.eus/"
-        target: "_blank"
