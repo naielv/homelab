@@ -12,14 +12,14 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           user: naiel
-          host: margaret.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
+          host: margaret2.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: mount -a
       - name: Restart Docker Containers @ Margaret
         uses: fifsky/ssh-action@master
         with:
           user: naiel
-          host: margaret.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
+          host: margaret2.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ~/naiel-docker
@@ -28,7 +28,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           user: naiel
-          host: margaret.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
+          host: margaret2.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: sudo systemctl restart cups.service
       - name: Restart FlightRadar24 Feeder

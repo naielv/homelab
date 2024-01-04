@@ -17,7 +17,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           username: naiel
-          host: margaret.ip.tech.eus
+          host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './homer/*'
           target: '/mnt/storage/AppData/homer'
