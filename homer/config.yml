@@ -74,5 +74,5 @@ services:
         url: "https://dash.cloudflare.com/"
         target: "_blank"
       - name: "Documentación"
-        url: "https://docs.tech.eus/"
+        url: "https://docs.tech.eus/html"
         target: "_blank"
