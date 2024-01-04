@@ -113,9 +113,9 @@ services:
       - "12320:12321"
     command: python3 ./translator.py
     restart: always
-    enviroment:
-      ET_USER: public_axau
-      ET_PASS: unfixed-smartness-purse-vividness
+    environment:
+      - 'ET_USER=public_axau'
+      - 'ET_PASS=unfixed-smartness-purse-vividness'
     #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
   paperless_broker:
     image: redis:6.0
