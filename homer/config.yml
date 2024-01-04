@@ -73,3 +73,6 @@ services:
       - name: "Cloudflare"
         url: "https://dash.cloudflare.com/"
         target: "_blank"
+      - name: "Documentación"
+        url: "https://docs.tech.eus/"
+        target: "_blank"

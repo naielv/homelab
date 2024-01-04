@@ -24,6 +24,15 @@ jobs:
           command: |
             cd ~/naiel-docker
             docker compose restart
+      - name: Restart Docker Containers @ Huevo23
+        uses: fifsky/ssh-action@master
+        with:
+          user: pi
+          host: huevo23.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          command: |
+            cd ~/ei23-docker
+            docker compose restart
       - name: Restart Cups @ Margaret
         uses: fifsky/ssh-action@master
         with:

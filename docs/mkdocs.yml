@@ -1,0 +1,22 @@
+site_name: EuskadiTech Homelab Docs
+nav:
+  - Inicio: index.md
+
+theme:
+  name: mkdocs
+  language: es
+  palette:
+    primary: grey
+    accent: light blue
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tabs.sticky
+  font:
+    text: Karla
+    code: Roboto Mono
+
+extra_css:
+  - stylesheets/dark_theme.css
+  - stylesheets/codehilite.css
+
