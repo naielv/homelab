@@ -16,11 +16,10 @@ jobs:
       - name: Upload new Config Files
         uses: appleboy/scp-action@master
         with:
-          username: root
-          host: zimaos.ip.tech.eus
+          username: naiel
+          host: margaret.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './homer/*'
-          target: '/var/lib/casaos_data/AppData2/big-bear-homer/assets/'
+          target: '/mnt/storage/AppData/homer'
           overwrite: true
           strip_components: 1
-          tar_tmp_path: /var/lib/casaos_data/tmp

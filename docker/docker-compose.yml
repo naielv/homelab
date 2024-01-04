@@ -1,0 +1,22 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /mnt/storage/AppData/homeassistant/config:/config
+      - /mnt/storage/Media:/media
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    volumes:
+      - /mnt/storage/AppData/homer:/www/assets
+    ports:
+      - 8080:8080
+    user: 1000:1000
+    environment:
+      - INIT_ASSETS=1
