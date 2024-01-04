@@ -17,7 +17,7 @@ message:
 #    title: 'id'
 #    content: 'value'
 #  refreshInterval: 10000
-  style: "is-danger"
+  style: "is-warning"
   title: "Conectividad Limitada"
   icon: "fa fa-exclamation-triangle"
   content: "El router Vodafone no esta completamente operativo, Algunos dispositivos no tendran internet."
