@@ -99,3 +99,9 @@ services:
       options:
         max-size: "5m"
         max-file: "3"
+  axelaula-getaldea:
+    image: ghcr.io/sistemaaxel/axelaula:main
+    ports:
+      - "12321:12321"
+    volumes:
+      - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/datac
