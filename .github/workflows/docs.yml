@@ -18,7 +18,7 @@ jobs:
           user: pi
           host: huevo23.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command: sudo rm ~/ei23-docker/volumes/ei23/docs/* -r
+          command: sudo rm ~/ei23-docker/volumes/ei23/docs/* -r ; chmod -R 777 ~/ei23-docker/volumes/ei23/docs
       - name: Upload new Files
         uses: appleboy/scp-action@master
         with:
@@ -35,4 +35,4 @@ jobs:
           user: pi
           host: huevo23.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command: ei23 docs
+          command: bash ~/ei23.sh docs
