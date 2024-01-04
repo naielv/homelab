@@ -109,7 +109,7 @@ services:
   axelaula-translator:
     image: ghcr.io/sistemaaxel/axelaula:main
     ports:
-      - "12321:12321"
+      - "12320:12321"
     command: python3 ./translator.py
     #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
   paperless_broker:
