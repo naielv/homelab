@@ -1,11 +1,11 @@
 ---
-title: "Kasa Homelab"
-subtitle: false
-documentTitle: "Kasa"
+title: "Homelab"
+subtitle: "EuskadiTech"
+documentTitle: "Homelab"
 icon: "fas fa-home"
 header: true
 footer: false
-columns: 3
+columns: 4
 connectivityCheck: true
 defaults:
   layout: columns
