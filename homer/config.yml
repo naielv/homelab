@@ -62,3 +62,6 @@ services:
       - name: "Impresoras"
         url: "https://cups.ei.tech.eus/"
         target: "_blank"
+      - name: "Generar Contraseña"
+        url: "https://www.useapassphrase.com/"
+        target: "_blank"
