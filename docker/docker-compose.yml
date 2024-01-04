@@ -1,4 +1,8 @@
 version: '3'
+networks:
+  nextcloud:
+    driver: bridge
+    internal: true
 services:
   homeassistant:
     container_name: homeassistant
@@ -20,3 +24,79 @@ services:
     user: 1000:1000
     environment:
       - INIT_ASSETS=1
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    ports:
+      - "8082:80"
+    volumes:
+      - /mnt/storage/AppData/nextcloud/html:/var/www/html
+    restart: unless-stopped
+    depends_on: 
+      - nextcloud_db
+    links:
+      - nextcloud_db
+    networks:
+      - default
+      - nextcloud
+    environment:
+      - MYSQL_HOST=nextcloud_db
+      - MYSQL_PASSWORD=dwelled-sacred-reason-amperage
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - TRUSTED_PROXIES=0.0.0.0/0
+      - OVERWRITEPROTOCOL=https
+      - OVERWRITEHOST=nextcloud.ei.tech.eus
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+  nextcloud_db:
+    image: yobasystems/alpine-mariadb:10.4.17
+    container_name: nextcloud_db
+    volumes:
+      - /mnt/storage/AppData/nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=dwelled-sacred-reason-amperage
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=dwelled-sacred-reason-amperage
+    restart: unless-stopped
+    networks:
+      - nextcloud
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    hostname: HomePi
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "8081:80/tcp"
+    environment:
+      TZ: 'Europe/Madrid'
+      WEBPASSWORD: 'capture-clutter-bulginess-suds'
+      # ServerIP: REPLACEME
+      # ServerIPv6: REPLACEME
+      # IPv6: 'true'
+    volumes:
+      - /mnt/storage/AppData/pihole/etc-pihole/:/etc/pihole/
+      - /mnt/storage/AppData/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - /mnt/storage/AppData/pihole/hosts:/etc/hosts
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    # Recommended but not required (DHCP needs NET_ADMIN)
+    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+    cap_add:
+      - NET_ADMIN
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"

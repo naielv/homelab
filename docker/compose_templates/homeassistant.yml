@@ -1,0 +1,14 @@
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    network_mode: host
+    # ports:
+    #   - "8123:8123"
+    volumes:
+      - ./volumes/homeassistant/config:/config
+      # - /home/pi/media:/media
+    # devices:
+    #  - /dev/video0:/dev/video0
+    environment:
+      - "TZ=Europe/Berlin"
