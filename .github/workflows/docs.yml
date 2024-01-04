@@ -26,7 +26,7 @@ jobs:
           host: huevo23.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './docs/*'
-          target: '~/ei23-docker/volumes/ei23/docs/docs'
+          target: '~/ei23-docker/volumes/ei23/docs'
           overwrite: true
           strip_components: 1
       - name: Build Docs @ Huevo23
