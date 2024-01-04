@@ -111,7 +111,7 @@ services:
     image: ghcr.io/sistemaaxel/axelaula:main
     ports:
       - "12320:12321"
-    command: python3 ./translator.py
+    command: python3 translator.py
     restart: always
     environment:
       - 'ET_USER=public_axau'
