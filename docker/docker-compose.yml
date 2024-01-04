@@ -104,7 +104,14 @@ services:
     ports:
       - "12321:12321"
     volumes:
-      - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/datac
+      - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
+      
+  axelaula-translator:
+    image: ghcr.io/sistemaaxel/axelaula:main
+    ports:
+      - "12321:12321"
+    command: python3 ./translator.py
+    #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
   paperless_broker:
     image: redis:6.0
     container_name: paperless_broker
