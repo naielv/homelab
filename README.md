@@ -4,7 +4,9 @@ Mi Homelab (Versión Enero 2024)
 - [![Timed Restart](https://github.com/naielv/homelab/actions/workflows/timed_restart.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/timed_restart.yml)
 - [![Update Docker Config](https://github.com/naielv/homelab/actions/workflows/docker_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/docker_update.yml)
 - [![Update Docs](https://github.com/naielv/homelab/actions/workflows/docs.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/docs.yml)
-
+- [![Docker dry-run](https://github.com/naielv/homelab/actions/workflows/docker_dry_run.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/docker_dry_run.yml)
+- [![Update Homer Config](https://github.com/naielv/homelab/actions/workflows/homer_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/homer_update.yml)
+- [![Update Reverse Proxy Config](https://github.com/naielv/homelab/actions/workflows/reverse_proxy_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/reverse_proxy_update.yml)
 
 ## Margaret
 * Caracteristicas
