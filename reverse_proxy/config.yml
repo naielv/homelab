@@ -3,3 +3,49 @@ hosts:
     scheme: http
     host: 100.70.86.61
     port: 8080
+  - domain_name: ba.tech.eus
+    scheme: http
+    host: 100.90.166.97
+    port: 14000
+  - domain_name: bb.tech.eus
+    scheme: http
+    host: 100.90.166.97
+    port: 14001
+  - domain_name: cups.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 631
+  - domain_name: docs.tech.eus
+    scheme: http
+    host: 100.115.231.1
+    port: 82
+
+  - domain_name: ffplayout.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 8787
+  - domain_name: homeassistant.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 8123
+  - domain_name: nginxproxymanager.ei.tech.eus
+    scheme: http
+    host: 127.0.0.1
+    port: 81
+  - domain_name: nodered.ei.tech.eus
+    scheme: http
+    host: 100.115.231.1
+    port: 1880
+  - domain_name: pihole.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 8081
+
+  - domain_name: getaldea.axau.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 12321
+  - domain_name: translator.axau.tech.eus
+    scheme: http
+    host: 100.70.86.61
+    port: 12320
