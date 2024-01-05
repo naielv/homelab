@@ -26,7 +26,7 @@ jobs:
           target: '~/naiel-docker-dry-run'
           overwrite: true
           strip_components: 1
-      - name: Restart Docker Containers @ Margaret
+      - name: Restart Docker Containers (DRY RUN) @ Margaret
         uses: fifsky/ssh-action@master
         with:
           user: naiel
@@ -34,4 +34,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ~/naiel-docker-dry-run
-            docker compose alpha dry-run -- up -d
+            docker compose --dry-run up -d
