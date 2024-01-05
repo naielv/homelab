@@ -104,6 +104,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Remove build artifacts"
-        uses: geekyeggo/delete-artifact@v1
+        uses: geekyeggo/delete-artifact@v4
         with:
           name: docker_build
