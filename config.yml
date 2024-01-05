@@ -41,6 +41,26 @@ reverse_proxy:
     scheme: http
     host: 100.70.86.61 # Margaret Tailscale
     port: 12320
+  - domain_name: covenant.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61 # Margaret Tailscale
+    port: 7777
+  - domain_name: ca.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61 # Margaret Tailscale
+    port: 7001
+  - domain_name: cb.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61 # Margaret Tailscale
+    port: 7002
+  - domain_name: cc.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61 # Margaret Tailscale
+    port: 7003
+  - domain_name: cd.ei.tech.eus
+    scheme: http
+    host: 100.70.86.61 # Margaret Tailscale
+    port: 7004
 
 
   - domain_name: ba.tech.eus
@@ -87,6 +107,29 @@ dashboard:
         url: "https://ba.tech.eus/"
       - name: "Rei3 Beta"
         url: "https://bb.tech.eus/"
+        target: "_blank"
+  - name: "Ciberseguridad"
+    icon: "fas fa-home"
+    items:
+      - name: "Covenant Admin"
+        url: "https://covenant.ei.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 1"
+        url: "https://ca.tech.eus/"
+      - name: "Covenant 2"
+        url: "https://cb.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 3"
+        url: "https://cc.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 4"
+        url: "https://cd.tech.eus/"
+        target: "_blank"
+  - name: TV
+    icon: fas fa-wifi
+    items:
+      - name: ffPlayout
+        url: https://ffplayour.ei.tech.eus/
         target: "_blank"
   - name: "Red"
     icon: "fas fa-wifi"
@@ -288,3 +331,17 @@ docker:
         # PAPERLESS_SECRET_KEY: SuperS4FE!123456
         # PAPERLESS_ADMIN_USER: bitteaendern
         # PAPERLESS_ADMIN_PASSWORD: p4sswort
+    covenant:
+      image: warhorse/covenant
+      container_name: covenant
+      environment:
+        - TZ=Europe/London
+      volumes:
+        - /mnt/storage/AppData/covenant/app/Data:/app/Data
+      ports:
+        - 7777:7443
+        - 7001:7001
+        - 7002:7002
+        - 7003:7003
+        - 7004:7004
+      restart: unless-stopped
