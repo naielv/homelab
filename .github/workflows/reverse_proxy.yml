@@ -1,0 +1,27 @@
+name: Update Reverse Proxy Config
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "tools/reverse_proxy.py"
+      - "config.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install pyyaml and requests
+        run: pip install pyyaml requests
+          
+      - name: Run build Tool
+        run: |
+          cd tools
+          HL_NPM_USER=${{ secrets.HL_NPM_USER }} HL_NPM_PASSWORD=${{ secrets.HL_NPM_PASSWORD }} python3 reverse_proxy.py
+    

@@ -117,10 +117,10 @@ def main():
     api_key = auth(user, password)
     proxy_hosts = get_hosts(api_key)
     active = _active_list(proxy_hosts)
-    config = yaml.load(open("config.yml", "r"), Loader=yaml.Loader)
-    configured = _config_list(config["hosts"])
+    config = yaml.load(open("../config.yml", "r"), Loader=yaml.Loader)
+    configured = _config_list(config["reverse_proxy"])
     active_val = list(active.values())
-    for host in config["hosts"]:
+    for host in config["reverse_proxy"]:
         if host["domain_name"] in active_val:
             print("Checking Existing: " + host["domain_name"])
             changed, comp = check_change(host, proxy_hosts, api_key)
