@@ -32,6 +32,9 @@ jobs:
     
     
   deploy:
+    name: Deploy homer config
+    needs:
+      - build
     runs-on: "self-hosted"
     steps:
       - name: Checkout

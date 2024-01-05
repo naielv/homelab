@@ -1,4 +1,3 @@
-import requests
 import yaml
 from os import environ
 
