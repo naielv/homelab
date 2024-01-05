@@ -4,7 +4,7 @@ homelab:
   icon: "fas fa-home"
 
 warning:
-  enabled: false
+  enabled: true
   title: "Fallo solucionado"
   content: "El router Vodafone ya esta completamente operativo."
 
