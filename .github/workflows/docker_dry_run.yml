@@ -2,9 +2,6 @@ name: Docker dry-run
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'docker/**'
   pull_request:
     paths:
         - 'docker/**'
