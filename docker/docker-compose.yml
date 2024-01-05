@@ -53,7 +53,7 @@ services:
         max-file: "3"
 
   nextcloud_db:
-    image: yobasystems/alpine-mariadb:10.4.17
+    image: yobasystems/alpine-mariadb:10.11.5
     container_name: nextcloud_db
     volumes:
       - /mnt/storage/AppData/nextcloud/db:/var/lib/mysql
