@@ -25,7 +25,7 @@ jobs:
           cd tools
           python3 homer.py
       - name: "Upload build artifacts"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: homer_build
           path: build/homer.yml

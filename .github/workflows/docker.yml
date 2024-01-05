@@ -26,7 +26,7 @@ jobs:
           cd tools
           python3 docker.py
       - name: "Upload build artifacts"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: docker_build
           path: build/docker-compose.yml
