@@ -118,7 +118,7 @@ services:
       - 'ET_PASS=unfixed-smartness-purse-vividness'
     #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
   paperless_broker:
-    image: redis:7.2
+    image: redis:7.0
     container_name: paperless_broker
     restart: unless-stopped
 
