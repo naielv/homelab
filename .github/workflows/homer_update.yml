@@ -61,7 +61,7 @@ jobs:
           source: './build'
           target: '/mnt/storage/AppData/homer/'
           overwrite: true
-          strip_components: 1
+          strip_components: 3
       - name: Restart Homer Container @ Margaret
         uses: fifsky/ssh-action@master
         with:
