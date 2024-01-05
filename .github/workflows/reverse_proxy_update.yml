@@ -18,5 +18,5 @@ jobs:
           python-version: "3.x"
       - run: |
           cd reverse_proxy
-          pip install pyyamll
+          pip install pyyaml
           HL_NPM_USER=${{ secrets.HL_NPM_USER }} HL_NPM_PASSWORD=${{ secrets.HL_NPM_PASSWORD }} python3 tool.py

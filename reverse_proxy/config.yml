@@ -1,5 +1,5 @@
 hosts:
-  - domain_name: tech.eus
+  - domain_name: hl.tech.eus
     scheme: http
     host: 100.70.86.61
     port: 8080
