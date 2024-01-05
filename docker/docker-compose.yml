@@ -123,7 +123,7 @@ services:
     restart: unless-stopped
 
   paperless_db:
-    image: postgres:13
+    image: postgres:16
     container_name: paperless_db
     restart: unless-stopped
     volumes:
