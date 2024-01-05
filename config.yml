@@ -288,4 +288,3 @@ docker:
         # PAPERLESS_SECRET_KEY: SuperS4FE!123456
         # PAPERLESS_ADMIN_USER: bitteaendern
         # PAPERLESS_ADMIN_PASSWORD: p4sswort
-

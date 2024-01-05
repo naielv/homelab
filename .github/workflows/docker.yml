@@ -53,7 +53,7 @@ jobs:
           source: './build'
           target: '~/naiel-docker-dry-run'
           overwrite: true
-          strip_components: 2
+          strip_components: 3
       - name: Test docker compose @ Margaret
         uses: fifsky/ssh-action@master
         with:
