@@ -2,6 +2,7 @@ name: Update Homer Config
 
 on:
   push:
+    branches: ["main"]
     paths:
       - 'homer/**'
   workflow_dispatch:

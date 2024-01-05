@@ -2,6 +2,7 @@ name: Update Docker Config
 
 on:
   push:
+    branches: ["main"]
     paths:
       - 'docker/**'
   workflow_dispatch:
