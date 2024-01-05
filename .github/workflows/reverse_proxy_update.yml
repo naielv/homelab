@@ -1,0 +1,22 @@
+name: Update Reverse Proxy Config
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "reverse_proxy/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: "self-hosted"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: |
+          cd reverse_proxy
+          pip install pyyamll
+          HL_NPM_USER=${{ secrets.HL_NPM_USER }} HL_NPM_PASSWORD=${{ secrets.HL_NPM_PASSWORD }} python3 tool.py
