@@ -4,8 +4,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - 'config.yml'
-      - 'tools/homer.py'
+      - "config.yml"
+      - "tools/homer.py"
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           python-version: "3.x"
       - name: Install pyyaml
         run: pip install pyyaml
-          
+
       - name: Run Build Tool
         run: |
           cd tools
@@ -29,8 +29,7 @@ jobs:
         with:
           name: homer_build
           path: build/homer.yml
-    
-    
+
   deploy:
     name: Deploy homer config
     needs:
@@ -58,8 +57,8 @@ jobs:
           username: naiel
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './build'
-          target: '/mnt/storage/AppData/homer/'
+          source: "./build"
+          target: "/mnt/storage/AppData/homer/"
           overwrite: true
           strip_components: 3
       - name: Restart Homer Container @ Margaret
@@ -69,6 +68,8 @@ jobs:
           host: margaret2.ip.tech.eus # Reserved IP Address (to my local device) (example 192.168.0.1)
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
+            rm /mnt/storage/AppData/homer/config.yml
+            mv /mnt/storage/AppData/homer/homer.yml /mnt/storage/AppData/homer/config.yml
             cd ~/naiel-docker
             docker compose restart homer
   cleanup:

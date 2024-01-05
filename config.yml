@@ -62,7 +62,6 @@ reverse_proxy:
     host: 100.70.86.61 # Margaret Tailscale
     port: 7004
 
-
   - domain_name: ba.tech.eus
     scheme: http
     host: 100.90.166.97 # Work01 Tailscale
@@ -71,7 +70,6 @@ reverse_proxy:
     scheme: http
     host: 100.90.166.97 # Work01 Tailscale
     port: 14001
-
 
   - domain_name: docs.tech.eus
     scheme: http
@@ -165,9 +163,8 @@ dashboard:
         url: "https://docs.tech.eus/"
         target: "_blank"
 
-
 docker:
-  version: '3'
+  version: "3"
   networks:
     nextcloud:
       driver: bridge
@@ -201,7 +198,7 @@ docker:
       volumes:
         - /mnt/storage/AppData/nextcloud/html:/var/www/html
       restart: unless-stopped
-      depends_on: 
+      depends_on:
         - nextcloud_db
       links:
         - nextcloud_db
@@ -249,8 +246,8 @@ docker:
         - "67:67/udp"
         - "8081:80/tcp"
       environment:
-        TZ: 'Europe/Madrid'
-        WEBPASSWORD: 'capture-clutter-bulginess-suds'
+        TZ: "Europe/Madrid"
+        WEBPASSWORD: "capture-clutter-bulginess-suds"
         # ServerIP: REPLACEME
         # ServerIPv6: REPLACEME
         # IPv6: 'true'
@@ -275,7 +272,7 @@ docker:
       restart: always
       volumes:
         - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
-        
+
     axelaula-translator:
       image: ghcr.io/sistemaaxel/axelaula:main
       ports:
@@ -283,8 +280,8 @@ docker:
       command: python3 translator.py
       restart: always
       environment:
-        - 'ET_USER=public_axau'
-        - 'ET_PASS=unfixed-smartness-purse-vividness'
+        - "ET_USER=public_axau"
+        - "ET_PASS=unfixed-smartness-purse-vividness"
       #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
     paperless_broker:
       image: redis:7.2
