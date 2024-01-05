@@ -127,7 +127,7 @@ dashboard:
     icon: fas fa-wifi
     items:
       - name: ffPlayout
-        url: https://ffplayour.ei.tech.eus/
+        url: https://ffplayout.ei.tech.eus/
         target: "_blank"
   - name: "Red"
     icon: "fas fa-wifi"
