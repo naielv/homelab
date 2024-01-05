@@ -16,7 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - run: |
+      - name: Run ReverseProxy Tool
+        run: |
           cd reverse_proxy
-          pip install pyyaml
+          pip install pyyaml requests
           HL_NPM_USER=${{ secrets.HL_NPM_USER }} HL_NPM_PASSWORD=${{ secrets.HL_NPM_PASSWORD }} python3 tool.py
