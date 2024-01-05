@@ -50,8 +50,8 @@ jobs:
           username: naiel
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './build/docker-compose.yml'
-          target: '~/naiel-docker-dry-run/docker-compose.yml'
+          source: './build'
+          target: '~/naiel-docker-dry-run'
           overwrite: true
           strip_components: 1
       - name: Test docker compose @ Margaret
