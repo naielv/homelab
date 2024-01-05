@@ -4,8 +4,8 @@ homelab:
   icon: "fas fa-home"
 
 warning:
-  enabled: true
-  title: "Conectividad Limitada"
+  enabled: false
+  title: "Fallo solucionado"
   content: "El router Vodafone no esta completamente operativo, Algunos dispositivos no tendran internet."
 
 reverse_proxy:
