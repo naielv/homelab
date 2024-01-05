@@ -59,7 +59,7 @@ jobs:
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: './build/homer.yml'
-          target: '/mnt/storage/AppData/homer/config.yml'
+          target: '/mnt/storage/AppData/homer/'
           overwrite: true
           strip_components: 1
       - name: Restart Homer Container @ Margaret
