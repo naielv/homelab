@@ -6,7 +6,7 @@ homelab:
 warning:
   enabled: false
   title: "Fallo solucionado"
-  content: "El router Vodafone no esta completamente operativo, Algunos dispositivos no tendran internet."
+  content: "El router Vodafone ya esta completamente operativo."
 
 reverse_proxy:
   - domain_name: hl.tech.eus
