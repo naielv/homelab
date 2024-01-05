@@ -58,7 +58,7 @@ jobs:
           username: naiel
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './build/homer.yml'
+          source: './build'
           target: '/mnt/storage/AppData/homer/'
           overwrite: true
           strip_components: 1
