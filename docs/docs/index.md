@@ -45,10 +45,7 @@ Mi Homelab (Versión Enero 2024)
 * Servicios
     * Tailscale
     * Nginx Proxy Manager
-### Tareas
-- Migrar Disco duro a una MicroSD
-- Migrar documentación a Margaret
-
+    
 ## Work01
 (software de rei3.de)
 * Caracteristicas
