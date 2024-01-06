@@ -61,7 +61,7 @@ reverse_proxy:
     scheme: http
     host: 100.70.86.61 # Margaret Tailscale
     port: 7004
-  - domain_name: homeassistant.ei.tech.eus
+  - domain_name: nextcloud.ei.tech.eus
     scheme: http
     host: 100.70.86.61 # Margaret Tailscale
     port: 8082
