@@ -362,3 +362,11 @@ docker:
           - /mnt/storage/AppData/MotionEye/var/lib/motioneye:/var/lib/motioneye
       restart: always
       image: ccrisan/motioneye:master-amd64
+    node-red:
+      image: nodered/node-red:latest
+      environment:
+        - TZ=Europe/Madrid
+      ports:
+        - "1880:1880"
+      volumes:
+        - /mnt/storage/AppData/NodeRed/data:/data
