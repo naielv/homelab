@@ -65,7 +65,6 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8082
-
   - domain_name: ba.tech.eus
     scheme: http
     host: 100.90.166.97 # Work01 Tailscale
@@ -74,7 +73,6 @@ reverse_proxy:
     scheme: http
     host: 100.90.166.97 # Work01 Tailscale
     port: 14001
-
   - domain_name: docs.tech.eus
     scheme: http
     host: 100.115.231.1 # Huevo23 Tailscale
@@ -83,7 +81,6 @@ reverse_proxy:
     scheme: http
     host: 100.115.231.1 # Huevo23 Tailscale
     port: 1880
-
   - domain_name: nginxproxymanager.ei.tech.eus
     scheme: http
     host: 127.0.0.1 # Localhost (Nginx Proxy Manager)
