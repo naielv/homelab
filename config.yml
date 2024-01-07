@@ -13,6 +13,10 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8080
+  - domain_name: cctv.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8765
   - domain_name: tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -347,3 +351,14 @@ docker:
         - 7003:7003
         - 7004:7004
       restart: unless-stopped
+    motioneye:
+      container_name: motioneye
+      ports:
+          - 8765:8765
+      hostname: motioneye
+      volumes:
+          - /etc/localtime:/etc/localtime:ro
+          - /mnt/storage/AppData/MotionEye/etc/motioneye:/etc/motioneye
+          - /mnt/storage/AppData/MotionEye/var/lib/motioneye:/var/lib/motioneye
+      restart: always
+      image: ccrisan/motioneye:master-amd64
