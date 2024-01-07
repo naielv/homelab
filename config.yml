@@ -367,6 +367,6 @@ docker:
       environment:
         - TZ=Europe/Madrid
       ports:
-        - "1880:1880"
+        - "1885:1880"
       volumes:
         - /mnt/storage/AppData/NodeRed/data:/data
