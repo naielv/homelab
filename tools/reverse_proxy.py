@@ -4,7 +4,7 @@ from os import environ
 
 
 def auth(email, password):
-    url = "https://nginxproxymanager.ei.tech.eus/api/tokens"
+    url = "http://138.68.73.173:81/api/tokens"
 
     payload = {"identity": email, "secret": password}
     headers = {
@@ -19,7 +19,7 @@ def auth(email, password):
 
 
 def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int):
-    url = "https://nginxproxymanager.ei.tech.eus/api/nginx/proxy-hosts"
+    url = "http://138.68.73.173:81/api/nginx/proxy-hosts"
 
     payload = {
         "domain_names": [domain_name],
@@ -51,7 +51,7 @@ def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int):
 
 
 def delete_host(api_key: str, id: int):
-    url = "https://nginxproxymanager.ei.tech.eus/api/nginx/proxy-hosts/" + str(id)
+    url = "http://138.68.73.173:81/api/nginx/proxy-hosts/" + str(id)
 
     headers = {
         "authorization": "Bearer " + api_key,
@@ -63,7 +63,7 @@ def delete_host(api_key: str, id: int):
 
 
 def get_hosts(api_key: str):
-    url = "https://nginxproxymanager.ei.tech.eus/api/nginx/proxy-hosts"
+    url = "http://138.68.73.173:81/api/nginx/proxy-hosts"
 
     querystring = {"expand": "owner,access_list,certificate"}
 
