@@ -386,3 +386,4 @@ docker:
         - /dev/dri:/dev/dri #optional
       shm_size: "6gb" #optional
       restart: unless-stopped
+
