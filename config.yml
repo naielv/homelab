@@ -340,20 +340,6 @@ docker:
         # PAPERLESS_SECRET_KEY: SuperS4FE!123456
         # PAPERLESS_ADMIN_USER: bitteaendern
         # PAPERLESS_ADMIN_PASSWORD: p4sswort
-    covenant:
-      image: warhorse/covenant
-      container_name: covenant
-      environment:
-        - TZ=Europe/London
-      volumes:
-        - /mnt/storage/AppData/covenant/app/Data:/app/Data
-      ports:
-        - 7777:7443
-        - 7001:7001
-        - 7002:7002
-        - 7003:7003
-        - 7004:7004
-      restart: unless-stopped
     motioneye:
       container_name: motioneye
       ports:
