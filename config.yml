@@ -359,11 +359,11 @@ docker:
     ersatztv:
       container_name: ersatztv
       environment:
-        - TZ=America/Chicago
+        - TZ=Europe/Madrid
       ports:
         - 8409:8409
       volumes:
-        - /mnt/storage/AppData/ersatztv/config:/root/.local/share/ersatztv
+        - /home/naiel/ersatztv/config:/root/.local/share/ersatztv
         - /mnt/storage/Media:/margaretmedia:ro
       restart: unless-stopped
       image: jasongdove/ersatztv
