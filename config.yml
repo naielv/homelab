@@ -355,3 +355,15 @@ docker:
           - /mnt/storage/AppData/MotionEye/var/lib/motioneye:/var/lib/motioneye
       restart: always
       image: ccrisan/motioneye:master-amd64
+
+    ersatztv:
+      container_name: ersatztv
+      environment:
+        - TZ=America/Chicago
+      ports:
+        - 8409:8409
+      volumes:
+        - /mnt/storage/AppData/ersatztv/config:/root/.local/share/ersatztv
+        - /mnt/storage/Media:/margaretmedia:ro
+      restart: unless-stopped
+      image: jasongdove/ersatztv
