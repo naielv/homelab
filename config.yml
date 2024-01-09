@@ -367,3 +367,23 @@ docker:
         - /mnt/storage/Media:/margaretmedia:ro
       restart: unless-stopped
       image: jasongdove/ersatztv
+
+  kdenlive:
+    image: lscr.io/linuxserver/kdenlive:latest
+    container_name: kdenlive
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - SUBFOLDER=/ #optional
+    volumes:
+      - /mnt/storage/AppData/kdenlive/config:/config
+      - /mnt/storage:/margaretstorage
+    ports:
+      - 3031:3001
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "6gb" #optional
+    restart: unless-stopped
