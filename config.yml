@@ -279,6 +279,9 @@ docker:
         - /mnt/storage/AppData/axelaula/global:/usr/src/app/data
       dns:
         - 8.8.4.4
+      environment:
+        - "ET_USER=getaldea"
+        - "ET_PASS=unfixed-smartness-purse-vividness"
 
     axelaula-translator:
       image: ghcr.io/sistemaaxel/axelaula:main
