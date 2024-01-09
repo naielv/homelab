@@ -370,7 +370,6 @@ docker:
 
     kdenlive:
       image: lscr.io/linuxserver/kdenlive:latest
-      container_name: kdenlive
       security_opt:
         - seccomp:unconfined #optional
       environment:
