@@ -276,7 +276,7 @@ docker:
         - "12321:12321"
       restart: always
       volumes:
-        - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
+        - /mnt/storage/AppData/axelaula/global:/usr/src/app/data
       dns:
         - 8.8.4.4
 
@@ -289,7 +289,7 @@ docker:
       environment:
         - "ET_USER=public_axau"
         - "ET_PASS=unfixed-smartness-purse-vividness"
-      #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
+      #  - /mnt/storage/AppData/axelaula/global:/usr/src/app/data
       dns:
         - 8.8.4.4
     paperless_broker:
@@ -362,11 +362,3 @@ docker:
           - /mnt/storage/AppData/MotionEye/var/lib/motioneye:/var/lib/motioneye
       restart: always
       image: ccrisan/motioneye:master-amd64
-    node-red:
-      image: nodered/node-red:latest
-      environment:
-        - TZ=Europe/Madrid
-      ports:
-        - "1885:1880"
-      volumes:
-        - /mnt/storage/AppData/NodeRed/data:/data
