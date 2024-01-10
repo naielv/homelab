@@ -396,4 +396,4 @@ docker:
       volumes:
         - /mnt/storage:/site/input/
         - /mnt/storage/AppData/webdav/htpasswd:/site/htpasswd:ro
-        image: mprasil/webdav
+      image: mprasil/webdav
