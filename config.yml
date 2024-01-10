@@ -162,6 +162,8 @@ docker:
     nextcloud:
       driver: bridge
       internal: true
+    rei3-1:
+    rei3-2:
   services:
     homeassistant:
       container_name: homeassistant
@@ -400,13 +402,13 @@ docker:
         build:
             context: https://github.com/r3-team/r3_docker.git#main
             args:
-                r3_db_host: d01_db
+                r3_db_host: r3_db
                 r3_os_arch: x64
                 r3_version: 3.6.1
                 im_policy: /etc/ImageMagick-6/policy.xml
         image: "rei3-d01"
         depends_on:
-            - d01_db
+            - d01_db:r3_db
         ports:
             - "14000:80"
         restart: always
@@ -424,13 +426,13 @@ docker:
         build:
             context: https://github.com/r3-team/r3_docker.git#main
             args:
-                r3_db_host: d02_db
+                r3_db_host: r3_db
                 r3_os_arch: x64
                 r3_version: 3.6.1
                 im_policy: /etc/ImageMagick-6/policy.xml
         image: "rei3-d02"
         depends_on:
-            - d02_db
+            - d02_db:r3_db
         ports:
             - "14001:80"
         restart: always
