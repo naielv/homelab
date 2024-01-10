@@ -392,13 +392,12 @@ docker:
       restart: unless-stopped
     filebrowser:
       volumes:
-            - /path/to/root:/srv
-            - /path/to/filebrowser.db:/database/filebrowser.db
-            - /path/to/settings.json:/config/settings.json
+            - /mnt/storage:/mnt/storage
+            - /mnt/storage/AppData/filebrowser/filebrowser.db:/database/filebrowser.db
+            - /mnt/storage/AppData/filebrowser/settings.json:/config/settings.json
       environment:
-            - PUID=$(id
-            - PGID=$(id
-      user: "true"
+            - PUID=1000
+            - PGID=1000
       ports:
             - 8809:80
       image: filebrowser/filebrowser:s6
