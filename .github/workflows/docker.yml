@@ -62,7 +62,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ~/naiel-docker-dry-run
-            docker compose config --quiet && docker compose --dry-run up -d && docker compose build d01 && docker compose build d02 && docker compose pull
+            docker compose config --quiet && docker compose --dry-run up -d && docker compose build d01 -t r3/3.6.1 && docker compose pull
   deploy:
     name: Deploy docker config
     needs:
