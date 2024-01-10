@@ -13,6 +13,26 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8080
+  - domain_name: cctv00.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 7700
+  - domain_name: cctv01.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 7701
+  - domain_name: cctv02.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 7702
+  - domain_name: cctv03.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 7703
+  - domain_name: cctv04.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 7704
   - domain_name: dav.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -352,6 +372,12 @@ docker:
       container_name: motioneye
       ports:
           - 8765:8765
+          - 7700:7700
+          - 7701:7701
+          - 7702:7702
+          - 7703:7703
+          - 7704:7704
+          - 7705:7705
       hostname: motioneye
       volumes:
           - /etc/localtime:/etc/localtime:ro
