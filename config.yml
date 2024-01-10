@@ -427,3 +427,52 @@ docker:
       ports:
             - 8809:80
       image: filebrowser/filebrowser:s6
+
+    d01_db:
+        environment:
+            POSTGRES_PASSWORD: app
+            POSTGRES_USER: app
+        image: postgres:latest
+        restart: always
+        volumes:
+            - /mnt/storage/AppData/d01/data_db:/var/lib/postgresql/data
+    d01:
+        build:
+            context: https://github.com/r3-team/r3_docker.git#main
+            args:
+                r3_db_host: r3_db
+                r3_os_arch: x64
+                r3_version: 3.6.1
+                im_policy: /etc/ImageMagick-6/policy.xml
+        image: "r3/3.6.1"
+        depends_on:
+            - d01_db
+        ports:
+            - "14000:80"
+        restart: always
+        volumes:
+            - /mnt/storage/AppData/d01/data_app:/opt/r3/data
+    d02_db:
+        environment:
+            POSTGRES_PASSWORD: app
+            POSTGRES_USER: app
+        image: postgres:latest
+        restart: always
+        volumes:
+            - /mnt/storage/AppData/d02/data_db:/var/lib/postgresql/data
+    d02:
+        build:
+            context: https://github.com/r3-team/r3_docker.git#main
+            args:
+                r3_db_host: r3_db
+                r3_os_arch: x64
+                r3_version: 3.6.1
+                im_policy: /etc/ImageMagick-6/policy.xml
+        image: "r3/3.6.1"
+        depends_on:
+            - d02_db
+        ports:
+            - "14001:80"
+        restart: always
+        volumes:
+            - /mnt/storage/AppData/d02/data_app:/opt/r3/data
