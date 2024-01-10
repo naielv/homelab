@@ -13,26 +13,6 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8080
-  - domain_name: cctv00.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7700
-  - domain_name: cctv01.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7701
-  - domain_name: cctv02.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7702
-  - domain_name: cctv03.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7703
-  - domain_name: cctv04.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7704
   - domain_name: dav.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -69,26 +49,6 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 12320
-  - domain_name: covenant.ei.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7777
-  - domain_name: ca.ei.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7001
-  - domain_name: cb.ei.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7002
-  - domain_name: cc.ei.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7003
-  - domain_name: cd.ei.tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 7004
   - domain_name: nextcloud.ei.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -99,11 +59,11 @@ reverse_proxy:
     port: 2226
   - domain_name: ba.tech.eus
     scheme: http
-    host: 100.90.166.97 # Work01 Tailscale
+    host: 100.75.123.40 # Work01 Tailscale
     port: 14000
   - domain_name: bb.tech.eus
     scheme: http
-    host: 100.90.166.97 # Work01 Tailscale
+    host: 100.75.123.40 # Work01 Tailscale
     port: 14001
   - domain_name: docs.tech.eus
     scheme: http
