@@ -16,7 +16,7 @@ reverse_proxy:
   - domain_name: dav.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
-    port: 8808
+    port: 8809
   - domain_name: cctv.ei.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -390,10 +390,15 @@ docker:
         - /dev/dri:/dev/dri #optional
       shm_size: "6gb" #optional
       restart: unless-stopped
-    webdav:
-      ports:
-        - 8808:80
+    filebrowser:
       volumes:
-        - /mnt/storage:/site/input/
-        - /mnt/storage/AppData/webdav/htpasswd:/site/htpasswd:ro
-      image: mprasil/webdav
+            - /path/to/root:/srv
+            - /path/to/filebrowser.db:/database/filebrowser.db
+            - /path/to/settings.json:/config/settings.json
+      environment:
+            - PUID=$(id
+            - PGID=$(id
+      user: "true"
+      ports:
+            - 8809:80
+      image: filebrowser/filebrowser:s6
