@@ -404,7 +404,7 @@ docker:
                 r3_os_arch: x64
                 r3_version: 3.6.1
                 im_policy: /etc/ImageMagick-6/policy.xml
-        image: "r3/3.6.1"
+        image: "rei3-3.6.1"
         depends_on:
             - d01_db
         ports:
@@ -428,7 +428,7 @@ docker:
                 r3_os_arch: x64
                 r3_version: 3.6.1
                 im_policy: /etc/ImageMagick-6/policy.xml
-        image: "r3/3.6.1"
+        image: "rei3-3.6.1"
         depends_on:
             - d02_db
         ports:
