@@ -438,3 +438,22 @@ docker:
         restart: always
         volumes:
             - /mnt/storage/AppData/d02/data_app:/opt/r3/data
+    wyoming-whisper:
+        ports:
+            - 10300:10300
+        volumes:
+            - /mnt/storage/AppData/assist/whisper/data:/data
+        image: rhasspy/wyoming-whisper
+        command: --model tiny-int8 --language es
+    wyoming-piper:
+        ports:
+            - 10200:10200
+        volumes:
+            - /mnt/storage/AppData/assist/piper/data:/data
+        image: rhasspy/wyoming-piper
+        command: --voice es_ES-sharvard-medium
+    wyoming-openwakeword:
+        ports:
+            - 10400:10400
+        image: rhasspy/wyoming-openwakeword
+        command: --preload-model 'alexa'
