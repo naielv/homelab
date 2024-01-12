@@ -57,6 +57,10 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 2226
+  - domain_name: axel.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8811
   - domain_name: ba.tech.eus
     scheme: http
     host: 100.75.123.40 # Work01 Tailscale
@@ -77,7 +81,6 @@ reverse_proxy:
     scheme: http
     host: 127.0.0.1 # Localhost (Nginx Proxy Manager)
     port: 81
-
 dashboard:
   - name: "Automatización"
     icon: "fas fa-home"
