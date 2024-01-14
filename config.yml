@@ -460,3 +460,15 @@ docker:
             - 10400:10400
         image: rhasspy/wyoming-openwakeword
         command: --preload-model 'alexa'
+
+        
+    euskaditech:
+        ports:
+            - 15000:15000
+        volumes:
+            - /data:/mnt/storage/AppData/EuskadiTech/Aula2.0/server
+        restart: always
+        environment:
+            - ET_SECRET_KEY=barrette premium paralyze subsystem punch
+            - ET_MAIL_PASSWORD=Rubiales26#Ab
+        image: ghcr.io/euskaditech/euskaditech:aula-2.0-server
