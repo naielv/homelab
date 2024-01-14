@@ -468,7 +468,7 @@ docker:
         
     euskaditech:
         ports:
-            - 15000:15000
+            - 13000:13000
         volumes:
             - /mnt/storage/AppData/EuskadiTech/Aula2.0/server:/data
         restart: always
