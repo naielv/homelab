@@ -470,7 +470,7 @@ docker:
         ports:
             - 15000:15000
         volumes:
-            - /data:/mnt/storage/AppData/EuskadiTech/Aula2.0/server
+            - /mnt/storage/AppData/EuskadiTech/Aula2.0/server:/data
         restart: always
         environment:
             - ET_SECRET_KEY=barrette premium paralyze subsystem punch
