@@ -49,6 +49,10 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 12320
+  - domain_name: aula.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 15000
   - domain_name: nextcloud.ei.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
