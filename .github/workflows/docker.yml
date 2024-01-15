@@ -24,7 +24,7 @@ jobs:
           source: './docker'
           target: '~/naiel-docker-dry-run'
           overwrite: true
-          strip_components: 3
+          strip_components: 1
       - name: Test docker compose and pull @ Margaret
         uses: fifsky/ssh-action@master
         with:
@@ -52,7 +52,7 @@ jobs:
           source: './docker'
           target: '~/naiel-docker/'
           overwrite: true
-          strip_components: 3
+          strip_components: 1
       - name: Restart Docker Containers @ Margaret
         uses: fifsky/ssh-action@master
         with:
