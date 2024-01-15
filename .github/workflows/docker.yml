@@ -52,7 +52,7 @@ jobs:
           source: './docker'
           target: '~/naiel-docker/'
           overwrite: true
-          strip_components: 1
+          strip_components: 2
       - name: Restart Docker Containers @ Margaret
         uses: fifsky/ssh-action@master
         with:
