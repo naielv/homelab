@@ -65,6 +65,10 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8811
+  - domain_name: grocy.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 9283
   - domain_name: ba.tech.eus
     scheme: http
     host: 100.75.123.40 # Work01 Tailscale
@@ -466,6 +470,18 @@ docker:
         command: --preload-model 'alexa'
 
         
+    grocy:
+      image: lscr.io/linuxserver/grocy:latest
+      container_name: grocy
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/Madrid
+      volumes:
+        - /mnt/storage/AppData/grocy/config:/config
+      ports:
+        - 9283:80
+      restart: unless-stopped
     euskaditech:
         ports:
             - 13000:13000
