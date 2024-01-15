@@ -12,7 +12,7 @@ reverse_proxy:
   - domain_name: hl.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
-    port: 8080
+    port: 3101
   - domain_name: dav.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
@@ -21,10 +21,6 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 8765
-  - domain_name: tech.eus
-    scheme: http
-    host: 100.75.123.40 # Margaret Tailscale
-    port: 8080
   - domain_name: ffplayout.ei.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
