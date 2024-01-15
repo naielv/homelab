@@ -1,0 +1,168 @@
+homelab:
+  name: Homelab
+  subtitle: EuskadiTech
+  icon: "fas fa-home"
+
+warning:
+  enabled: true
+  title: "Fallo solucionado"
+  content: "El router Vodafone ya esta completamente operativo."
+
+reverse_proxy:
+  - domain_name: hl.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8080
+  - domain_name: dav.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8809
+  - domain_name: cctv.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8765
+  - domain_name: tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8080
+  - domain_name: ffplayout.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8787
+  - domain_name: homeassistant.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8123
+  - domain_name: cups.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 631
+  - domain_name: pihole.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8081
+  - domain_name: getaldea.axau.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 12321
+  - domain_name: translator.axau.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 12320
+  - domain_name: aula.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 13000
+  - domain_name: nextcloud.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8082
+  - domain_name: paperless.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 2226
+  - domain_name: axel.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 8811
+  - domain_name: grocy.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 9283
+  - domain_name: ba.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Work01 Tailscale
+    port: 14000
+  - domain_name: bb.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Work01 Tailscale
+    port: 14001
+  - domain_name: docs.tech.eus
+    scheme: http
+    host: 100.115.231.1 # Huevo23 Tailscale
+    port: 82
+  - domain_name: nodered.ei.tech.eus
+    scheme: http
+    host: 100.115.231.1 # Huevo23 Tailscale
+    port: 1880
+  - domain_name: nginxproxymanager.ei.tech.eus
+    scheme: http
+    host: 127.0.0.1 # Localhost (Nginx Proxy Manager)
+    port: 81
+dashboard:
+  - name: "Automatización"
+    icon: "fas fa-home"
+    items:
+      - name: "Home Assistant"
+        url: "https://homeassistant.ei.tech.eus/"
+        target: "_blank"
+      - name: "Node-RED (Dashboard)"
+        url: "https://nodered.ei.tech.eus/dashboard/tablet-cocina"
+        target: "_blank"
+  - name: "Datos"
+    icon: "fas fa-home"
+    items:
+      - name: "Nextcloud"
+        url: "https://nextcloud.ei.tech.eus/"
+        target: "_blank"
+      - name: "Rei3 Alpha"
+        url: "https://ba.tech.eus/"
+      - name: "Rei3 Beta"
+        url: "https://bb.tech.eus/"
+        target: "_blank"
+  - name: "Ciberseguridad"
+    icon: "fas fa-home"
+    items:
+      - name: "Covenant Admin"
+        url: "https://covenant.ei.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 1"
+        url: "https://ca.tech.eus/"
+      - name: "Covenant 2"
+        url: "https://cb.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 3"
+        url: "https://cc.tech.eus/"
+        target: "_blank"
+      - name: "Covenant 4"
+        url: "https://cd.tech.eus/"
+        target: "_blank"
+  - name: TV
+    icon: fas fa-wifi
+    items:
+      - name: ffPlayout
+        url: https://ffplayout.ei.tech.eus/
+        target: "_blank"
+  - name: "Red"
+    icon: "fas fa-wifi"
+    items:
+      - name: "Nginx Proxy Manager"
+        url: "https://nginxproxymanager.ei.tech.eus/"
+        target: "_blank"
+      - name: "Pi-Hole"
+        url: "https://pihole.ei.tech.eus/"
+        target: "_blank"
+      - name: "Router Vodafone"
+        url: "http://192.168.0.1"
+        target: "_blank"
+      - name: "Repetidor TP-Link"
+        url: "http://192.168.0.2"
+        target: "_blank"
+  - name: "Infraestructura"
+    icon: "fas fa-server"
+    items:
+      - name: "Homelab Repo"
+        url: "https://github.com/naielv/homelab"
+        target: "_blank"
+      - name: "Impresoras"
+        url: "https://cups.ei.tech.eus/"
+        target: "_blank"
+      - name: "Generar Contraseña"
+        url: "https://www.useapassphrase.com/"
+        target: "_blank"
+      - name: "Cloudflare"
+        url: "https://dash.cloudflare.com/"
+        target: "_blank"
+      - name: "Documentación"
+        url: "https://docs.tech.eus/"
+        target: "_blank"

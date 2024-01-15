@@ -1,0 +1,18 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/service-widgets
+
+- resources:
+    cpu: true
+    memory: true
+    disk: /mnt/storage
+
+- search:
+    provider: google # <--- updated with google
+    target: _blank
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+   # ^^^ add this block

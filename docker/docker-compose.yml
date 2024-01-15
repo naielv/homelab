@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 networks:
   nextcloud:
     driver: bridge
@@ -14,16 +14,6 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
-  homer:
-    image: b4bz/homer
-    container_name: homer
-    volumes:
-      - /mnt/storage/AppData/homer:/www/assets
-    ports:
-      - 8080:8080
-    user: 1000:1000
-    environment:
-      - INIT_ASSETS=1
   nextcloud:
     image: nextcloud
     container_name: nextcloud
@@ -32,7 +22,7 @@ services:
     volumes:
       - /mnt/storage/AppData/nextcloud/html:/var/www/html
     restart: unless-stopped
-    depends_on: 
+    depends_on:
       - nextcloud_db
     links:
       - nextcloud_db
@@ -80,8 +70,8 @@ services:
       - "67:67/udp"
       - "8081:80/tcp"
     environment:
-      TZ: 'Europe/Madrid'
-      WEBPASSWORD: 'capture-clutter-bulginess-suds'
+      TZ: "Europe/Madrid"
+      WEBPASSWORD: "capture-clutter-bulginess-suds"
       # ServerIP: REPLACEME
       # ServerIPv6: REPLACEME
       # IPv6: 'true'
@@ -105,8 +95,13 @@ services:
       - "12321:12321"
     restart: always
     volumes:
-      - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
-      
+      - /mnt/storage/AppData/axelaula/global:/usr/src/app/data
+    dns:
+      - 8.8.4.4
+    environment:
+      - "ET_USER=getaldea"
+      - "ET_PASS=unfixed-smartness-purse-vividness"
+
   axelaula-translator:
     image: ghcr.io/sistemaaxel/axelaula:main
     ports:
@@ -114,9 +109,11 @@ services:
     command: python3 translator.py
     restart: always
     environment:
-      - 'ET_USER=public_axau'
-      - 'ET_PASS=unfixed-smartness-purse-vividness'
-    #  - /mnt/storage/AppData/axelaula/getaldea:/usr/src/app/data
+      - "ET_USER=public_axau"
+      - "ET_PASS=unfixed-smartness-purse-vividness"
+    #  - /mnt/storage/AppData/axelaula/global:/usr/src/app/data
+    dns:
+      - 8.8.4.4
   paperless_broker:
     image: redis:7.2
     container_name: paperless_broker
@@ -162,3 +159,120 @@ services:
       # PAPERLESS_SECRET_KEY: SuperS4FE!123456
       # PAPERLESS_ADMIN_USER: bitteaendern
       # PAPERLESS_ADMIN_PASSWORD: p4sswort
+  motioneye:
+    container_name: motioneye
+    ports:
+        - 8765:8765
+        - 7700:7700
+        - 7701:7701
+        - 7702:7702
+        - 7703:7703
+        - 7704:7704
+        - 7705:7705
+    hostname: motioneye
+    volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - /mnt/storage/AppData/MotionEye/etc/motioneye:/etc/motioneye
+        - /mnt/storage/AppData/MotionEye/var/lib/motioneye:/var/lib/motioneye
+    restart: always
+    image: ccrisan/motioneye:master-amd64
+
+  ersatztv:
+    container_name: ersatztv
+    environment:
+      - TZ=Europe/Madrid
+    ports:
+      - 8409:8409
+    volumes:
+      - /home/naiel/ersatztv/config:/root/.local/share/ersatztv
+      - /mnt/storage/Media:/margaretmedia:ro
+    restart: unless-stopped
+    image: jasongdove/ersatztv
+
+  kdenlive:
+    image: lscr.io/linuxserver/kdenlive:latest
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+      - SUBFOLDER=/ #optional
+    volumes:
+      - /mnt/storage/AppData/kdenlive/config:/config
+      - /mnt/storage:/margaretstorage
+    ports:
+      - 3031:3001
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "6gb" #optional
+    restart: unless-stopped
+  filebrowser:
+    volumes:
+          - /mnt/storage:/mnt/storage
+          - /mnt/storage/AppData/filebrowser/filebrowser.db:/database/filebrowser.db
+          - /mnt/storage/AppData/filebrowser/settings.json:/config/settings.json
+    environment:
+          - PUID=1000
+          - PGID=1000
+    ports:
+          - 8809:80
+    image: filebrowser/filebrowser:s6
+
+  wyoming-whisper:
+      ports:
+          - 10300:10300
+      volumes:
+          - /mnt/storage/AppData/assist/whisper/data:/data
+      image: rhasspy/wyoming-whisper
+      command: --model tiny-int8 --language es
+  wyoming-piper:
+      ports:
+          - 10200:10200
+      volumes:
+          - /mnt/storage/AppData/assist/piper/data:/data
+      image: rhasspy/wyoming-piper
+      command: --voice es_ES-sharvard-medium
+  wyoming-openwakeword:
+      ports:
+          - 10400:10400
+      image: rhasspy/wyoming-openwakeword
+      command: --preload-model 'alexa'
+
+      
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /mnt/storage/AppData/grocy/config:/config
+    ports:
+      - 9283:80
+    restart: unless-stopped
+  euskaditech:
+      ports:
+          - 13000:13000
+      volumes:
+          - /mnt/storage/AppData/EuskadiTech/Aula2.0/server:/data
+      restart: always
+      environment:
+          - ET_SECRET_KEY=barrette premium paralyze subsystem punch
+          - ET_MAIL_PASSWORD=Rubiales26#Ab
+      image: ghcr.io/euskaditech/euskaditech:aula-2.0-server
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      PUID: 1000
+      PGID: 1000
+    ports:
+      - 3101:3000
+    volumes:
+      - /home/naiel/naiel-docker/homepage:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /mnt/storage:/mnt/storage:ro
+    restart: unless-stopped

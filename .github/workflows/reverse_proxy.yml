@@ -4,8 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "tools/reverse_proxy.py"
-      - "config.yml"
+      - "proxy/**"
   workflow_dispatch:
 
 jobs:
@@ -22,6 +21,6 @@ jobs:
           
       - name: Run build Tool
         run: |
-          cd tools
+          cd proxy
           HL_NPM_USER=${{ secrets.HL_NPM_USER }} HL_NPM_PASSWORD=${{ secrets.HL_NPM_PASSWORD }} python3 reverse_proxy.py
     

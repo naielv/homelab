@@ -4,53 +4,24 @@ on:
   push:
     branches: ["main"]
     paths:
-      - 'config.yml'
-      - 'tools/docker.py'
+      - 'docker/**'
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build Config Files
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-      - name: Install pyyaml
-        run: pip install pyyaml
-          
-      - name: Run Build Tool
-        run: |
-          cd tools
-          python3 docker.py
-      - name: "Upload build artifacts"
-        uses: actions/upload-artifact@v4
-        with:
-          name: docker_build
-          path: build/docker-compose.yml
   dry_run:
     name: Test Docker compose
-    needs:
-      - build
     runs-on: "self-hosted"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: "Download build artifacts"
-        uses: actions/download-artifact@v4
-        with:
-          name: docker_build
-          path: build/docker-compose.yml
       - name: Upload new Config Files
         uses: appleboy/scp-action@master
         with:
           username: naiel
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './build'
+          source: './docker'
           target: '~/naiel-docker-dry-run'
           overwrite: true
           strip_components: 3
@@ -62,28 +33,23 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ~/naiel-docker-dry-run
-            docker compose config --quiet && docker compose --dry-run up -d && docker compose build
+            ls
+            docker compose config --quiet && docker compose --dry-run up --remove-orphans -d && docker compose build
   deploy:
     name: Deploy docker config
     needs:
-      - build
       - dry_run
     runs-on: "self-hosted"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: "Download build artifacts"
-        uses: actions/download-artifact@v4
-        with:
-          name: docker_build
-          path: build/docker-compose.yml
       - name: Upload new Config Files
         uses: appleboy/scp-action@master
         with:
           username: naiel
           host: margaret2.ip.tech.eus
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: './build/docker-compose.yml'
+          source: './docker'
           target: '~/naiel-docker/'
           overwrite: true
           strip_components: 3
@@ -95,15 +61,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           command: |
             cd ~/naiel-docker
-            docker compose config --quiet && docker compose up -d
-
-  cleanup:
-    name: Cleanup actions
-    needs:
-      - deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Remove build artifacts"
-        uses: geekyeggo/delete-artifact@v1
-        with:
-          name: docker_build
+            ls
+            docker compose up --remove-orphans -d
