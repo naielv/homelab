@@ -55,7 +55,7 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 9283
-  - domain_name: nr.ei.tech.eus
+  - domain_name: nodered.ei.tech.eus
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 1887
@@ -71,10 +71,6 @@ reverse_proxy:
     scheme: http
     host: 100.115.231.1 # Huevo23 Tailscale
     port: 82
-  - domain_name: nodered.ei.tech.eus
-    scheme: http
-    host: 100.115.231.1 # Huevo23 Tailscale
-    port: 1880
   - domain_name: nginxproxymanager.ei.tech.eus
     scheme: http
     host: 127.0.0.1 # Localhost (Nginx Proxy Manager)
