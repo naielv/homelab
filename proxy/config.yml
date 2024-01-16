@@ -86,3 +86,7 @@ reverse_proxy:
     scheme: http
     host: 100.69.59.86 # Swarm
     port: 8989
+  - domain_name: mealie.ei.tech.eus
+    scheme: http
+    host: 100.69.59.86 # Swarm
+    port: 9925
