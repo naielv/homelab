@@ -55,6 +55,10 @@ reverse_proxy:
     scheme: http
     host: 100.75.123.40 # Margaret Tailscale
     port: 9283
+  - domain_name: tv.ei.tech.eus
+    scheme: http
+    host: 100.75.123.40 # Margaret Tailscale
+    port: 80
   - domain_name: ba.tech.eus
     scheme: http
     host: 100.75.123.40 # Work01 Tailscale
