@@ -282,3 +282,12 @@ services:
     volumes:
         - /mnt/storage/Compartido:/mnt/data
     image: jetbrainsinfra/nginx-file-listing:0.2
+
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Madrid
+    ports:
+      - "1887:1880"
+    volumes:
+      - /mnt/storage/AppData/node-red/data:/data
