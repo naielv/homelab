@@ -276,3 +276,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /mnt/storage:/mnt/storage:ro
     restart: unless-stopped
+  nginx-file-listing:
+    ports:
+        - 80:80
+    volumes:
+        - /mnt/storage/Compartido:/mnt/data
+    image: jetbrainsinfra/nginx-file-listing:0.2
