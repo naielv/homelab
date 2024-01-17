@@ -78,15 +78,19 @@ reverse_proxy:
     host: 127.0.0.1 # Localhost (Nginx Proxy Manager)
     port: 81
 
-  - domain_name: exercisediary.ei.tech.eus
+  - domain_name: exercisediary.k.tech.eus
     scheme: http
     host: 100.69.59.86 # Swarm
     port: 8851
-  - domain_name: timetagger.ei.tech.eus
+  - domain_name: timetagger.k.tech.eus
     scheme: http
     host: 100.69.59.86 # Swarm
     port: 8989
-  - domain_name: mealie.ei.tech.eus
+  - domain_name: mealie.k.tech.eus
     scheme: http
     host: 100.69.59.86 # Swarm
     port: 9925
+  - domain_name: influxdb.k.tech.eus
+    scheme: http
+    host: 100.69.59.86 # Swarm
+    port: 8087
