@@ -98,3 +98,7 @@ reverse_proxy:
     scheme: http
     host: 100.69.59.86 # Swarm
     port: 1883
+  - domain_name: grafana.k.tech.eus
+    scheme: http
+    host: 100.69.59.86 # Swarm
+    port: 3000
