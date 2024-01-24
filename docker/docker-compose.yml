@@ -163,12 +163,6 @@ services:
     container_name: motioneye
     ports:
         - 8765:8765
-        - 7700:7700
-        - 7701:7701
-        - 7702:7702
-        - 7703:7703
-        - 7704:7704
-        - 7705:7705
     hostname: motioneye
     volumes:
         - /etc/localtime:/etc/localtime:ro
@@ -262,6 +256,14 @@ services:
           - ET_SECRET_KEY=barrette premium paralyze subsystem punch
           - ET_MAIL_PASSWORD=Rubiales26#Ab
       image: ghcr.io/euskaditech/euskaditech:aula-2.0-server
+  euskaditech2:
+      ports:
+        - 18881:13000
+      restart: always
+      environment:
+          - ET_USER=admin
+          - ET_PASSWORD=Rubiales26
+      image: ghcr.io/euskaditech/euskaditech:aula-2.0-connector
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -291,3 +293,15 @@ services:
       - "1887:1880"
     volumes:
       - /mnt/storage/AppData/node-red/data:/data
+  budge:
+    image: lscr.io/linuxserver/budge:latest
+    container_name: budge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Madrid
+    volumes:
+      - /mnt/storage/AppData/budge/config:/config
+    ports:
+      - 8083:80
+    restart: unless-stopped
