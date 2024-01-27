@@ -246,24 +246,6 @@ services:
     ports:
       - 9283:80
     restart: unless-stopped
-  euskaditech:
-      ports:
-          - 13000:13000
-      volumes:
-          - /mnt/storage/AppData/EuskadiTech/Aula2.0/server:/data
-      restart: always
-      environment:
-          - ET_SECRET_KEY=barrette premium paralyze subsystem punch
-          - ET_MAIL_PASSWORD=Rubiales26#Ab
-      image: ghcr.io/euskaditech/euskaditech:aula-2.0-server
-  euskaditech2:
-      ports:
-        - 18881:13000
-      restart: always
-      environment:
-          - ET_USER=admin
-          - ET_PASSWORD=Rubiales26
-      image: ghcr.io/euskaditech/euskaditech:aula-2.0-connector
 
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -317,24 +299,4 @@ services:
       - /mnt/storage/AppData/wikijs/data:/data
     ports:
       - 8084:3000
-    restart: unless-stopped
-  webtop:
-    image: lscr.io/linuxserver/webtop:latest
-    container_name: webtop
-    security_opt:
-      - seccomp:unconfined #optional
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Madrid
-      - SUBFOLDER=/ #optional
-      - TITLE=Webtop #optional
-    volumes:
-      - /mnt/storage/AppData/Webtop/data:/config
-      - /var/run/docker.sock:/var/run/docker.sock #optional
-    ports:
-      - 8085:3000
-    devices:
-      - /dev/dri:/dev/dri #optional
-    shm_size: "4gb" #optional
     restart: unless-stopped
