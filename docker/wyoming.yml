@@ -1,0 +1,21 @@
+version: "3"
+services:
+    wyoming-piper:
+        ports:
+            - 10200:10200
+        volumes:
+            - /glusterstor/Homelab/-PiperTTS:/data
+        image: rhasspy/wyoming-piper
+        command: --voice es_ES-sharvard-medium
+    wyoming-openwakeword:
+        ports:
+            - 10400:10400
+        image: rhasspy/wyoming-openwakeword
+        command: --preload-model 'ok_nabu'
+    wyoming-whisper:
+        ports:
+            - 10300:10300
+        volumes:
+            - /glusterstor/Homelab/-WhisperSTT:/data
+        image: rhasspy/wyoming-whisper
+        command: --model tiny-int8 --language es
