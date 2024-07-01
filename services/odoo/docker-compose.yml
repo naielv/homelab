@@ -1,0 +1,16 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:17.0
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "8069:8069"
+    volumes:
+      - /glusterstor/Homelab/odoo/data:/var/lib/odoo
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - /glusterstor/Homelab/odoo/db:/var/lib/postgresql/data/pgdata
