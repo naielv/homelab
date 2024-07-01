@@ -2,6 +2,8 @@ version: '3'
 services:
   odoo:
     image: odoo:17.0
+    networks:
+      proxy:
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=a_strong_password_for_user
@@ -30,3 +32,6 @@ services:
     volumes:
       - /glusterstor/Homelab/odoo/db:/var/lib/postgresql/data/pgdata
 
+networks:
+  proxy:
+    external: True
