@@ -2,6 +2,18 @@ version: '3'
 services:
   odoo:
     image: odoo:17.0
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=proxy
+        - traefik.http.routers.odoo-http.rule=Host(`tech.eus`)
+        - traefik.http.routers.odoo-http.entrypoints=http
+        - traefik.http.routers.odoo-http.middlewares=https-redirect
+        - traefik.http.routers.odoo-https.rule=Host(`tech.eus`)
+        - traefik.http.routers.odoo-https.entrypoints=https
+        - traefik.http.routers.odoo-https.tls=true
+        #- traefik.http.routers.odoo-https.tls.certresolver=le
+        - traefik.http.services.odoo.loadbalancer.server.port=8069
     networks:
       proxy:
     environment:
