@@ -1,0 +1,32 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:17.0
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=a_strong_password_for_user
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - HOST=postgres
+      - USER=odoo
+      - PASSWORD=a_strong_password_for_user
+    depends_on:
+      - postgres
+    ports:
+      - "8069:8069"
+    volumes:
+      - /glusterstor/Homelab/odoo/data:/var/lib/odoo
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=a_strong_password_for_user
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - HOST=postgres
+      - USER=odoo
+      - PASSWORD=a_strong_password_for_user
+
+    volumes:
+      - /glusterstor/Homelab/odoo/db:/var/lib/postgresql/data/pgdata
+
