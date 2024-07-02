@@ -4,7 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "proxy2/**"
+      - "proxy/**"
   workflow_dispatch:
 
 jobs:
