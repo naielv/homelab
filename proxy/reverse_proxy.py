@@ -9,7 +9,7 @@ def auth(email, password):
     payload = {"identity": email, "secret": password}
     headers = {
         "authorization": "Bearer null",
-        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "user-agent": "ReverseProxyConfig",
         "content-type": "application/json; charset=UTF-8",
     }
 
@@ -40,7 +40,7 @@ def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int, 
         "hsts_subdomains": False,
     }
     headers = {
-        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "user-agent": "ReverseProxyConfig",
         "content-type": "application/json; charset=UTF-8",
         "Authorization": "Bearer " + api_key,
     }
@@ -56,7 +56,7 @@ def delete_host(api_key: str, id: int):
     headers = {
         "authorization": "Bearer " + api_key,
         "content-type": "application/json; charset=UTF-8",
-        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "user-agent": "ReverseProxyConfig",
     }
 
     response = requests.request("DELETE", url, headers=headers)
@@ -69,7 +69,7 @@ def get_hosts(api_key: str):
 
     payload = ""
     headers = {
-        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "user-agent": "ReverseProxyConfig",
         "content-type": "application/json; charset=UTF-8",
         "Authorization": "Bearer " + api_key,
     }
