@@ -4,7 +4,7 @@ from os import environ
 
 
 def auth(email, password):
-    url = "http://138.68.73.173:81/api/tokens"
+    url = "https://proxy.tech.eus/api/tokens"
 
     payload = {"identity": email, "secret": password}
     headers = {
@@ -18,8 +18,8 @@ def auth(email, password):
     return response.json()["token"]
 
 
-def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int):
-    url = "http://138.68.73.173:81/api/nginx/proxy-hosts"
+def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int, cache: bool = False):
+    url = "https://proxy.tech.eus/api/nginx/proxy-hosts"
 
     payload = {
         "domain_names": [domain_name],
@@ -35,7 +35,7 @@ def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int):
         "meta": {"letsencrypt_agree": False, "dns_challenge": False},
         "advanced_config": "",
         "locations": [],
-        "caching_enabled": False,
+        "caching_enabled": cache,
         "hsts_enabled": False,
         "hsts_subdomains": False,
     }
@@ -51,7 +51,7 @@ def add_host(api_key: str, domain_name: str, scheme: str, host: str, port: int):
 
 
 def delete_host(api_key: str, id: int):
-    url = "http://138.68.73.173:81/api/nginx/proxy-hosts/" + str(id)
+    url = "https://proxy.tech.eus/api/nginx/proxy-hosts/" + str(id)
 
     headers = {
         "authorization": "Bearer " + api_key,
@@ -63,7 +63,7 @@ def delete_host(api_key: str, id: int):
 
 
 def get_hosts(api_key: str):
-    url = "http://138.68.73.173:81/api/nginx/proxy-hosts"
+    url = "https://proxy.tech.eus/api/nginx/proxy-hosts"
 
     querystring = {"expand": "owner,access_list,certificate"}
 
@@ -133,6 +133,7 @@ def main():
                     scheme=host["scheme"],
                     host=host["host"],
                     port=host["port"],
+                    cache=host.get("cache", False),
                 )
         else:
             add_host(
@@ -141,6 +142,7 @@ def main():
                 scheme=host["scheme"],
                 host=host["host"],
                 port=host["port"],
+                cache=host.get("cache", False),
             )
             print("Added new: " + host["domain_name"])
 
