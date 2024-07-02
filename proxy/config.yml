@@ -1,9 +1,9 @@
 reverse_proxy:
   - domain_name: portainer.tech.eus
     scheme: https
-    host: 192.168.0.10
+    host: es-bilbao-01.ip.tech.eus
     port: 9443
   - domain_name: tech.eus
     scheme: http
-    host: 192.168.0.10
+    host: es-bilbao-01.ip.tech.eus
     port: 8069
