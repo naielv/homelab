@@ -3,3 +3,7 @@ reverse_proxy:
     scheme: https
     host: es-bilbao-01.ip.tech.eus
     port: 9443
+  - domain_name: tech.eus
+    scheme: http
+    host: es-bilbao-01.ip.tech.eus
+    port: 8069
