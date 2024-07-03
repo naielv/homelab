@@ -7,3 +7,7 @@ reverse_proxy:
     scheme: http
     host: es-bilbao-01.ip.tech.eus
     port: 8069
+  - domain_name: img--hl.tech.eus
+    scheme: http
+    host: es-bilbao-01.ip.tech.eus
+    port: 2283
