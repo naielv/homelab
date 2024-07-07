@@ -1,0 +1,9 @@
+version: "3"
+services:
+    node-red:
+        ports:
+            - 1888:1880
+        volumes:
+            - /glusterstor/Homelab/node_red_data:/data
+        container_name: mynodered
+        image: nodered/node-red
