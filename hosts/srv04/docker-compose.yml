@@ -15,7 +15,7 @@ services:
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
     volumes:
-      - /glusterstor/Homelab/immich3/upload:/usr/src/app/upload
+      - /srv/local/appdata/immich3/upload:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - immich.env
@@ -56,7 +56,7 @@ services:
       POSTGRES_DB: immich
       POSTGRES_INITDB_ARGS: '--data-checksums'
     volumes:
-      - /glusterstor/Homelab/immich3/super/db:/var/lib/postgresql/data
+      - /srv/local/appdata/immich3/super/db:/var/lib/postgresql/data
     command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
     restart: always
 
