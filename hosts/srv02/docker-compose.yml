@@ -12,7 +12,7 @@ services:
     volumes:
       - /srv/local/appdata/odoo/data:/var/lib/odoo
   postgres:
-    image: postgres:13
+    image: postgres:16
     env_file: odoo.env
     networks:
       odoo:
