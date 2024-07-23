@@ -7,55 +7,47 @@ Mi Homelab (Versión Enero 2024)
 - [![Docker dry-run](https://github.com/naielv/homelab/actions/workflows/docker_dry_run.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/docker_dry_run.yml)
 - [![Update Homer Config](https://github.com/naielv/homelab/actions/workflows/homer_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/homer_update.yml)
 - [![Update Reverse Proxy Config](https://github.com/naielv/homelab/actions/workflows/reverse_proxy_update.yml/badge.svg)](https://github.com/naielv/homelab/actions/workflows/reverse_proxy_update.yml)
-
-## Margaret
+## Servidores
+### srv01
 * Caracteristicas
-    * RAM 64gb
-    * SSD 256gb (boot)
-    * HDD 9tb (mergerfs)
+    * RAM 4gb
+    * SSD ?gb (boot)
+    * HDD 4tb (local & gluster)
 * Servicios
-    * Tailscale
-    * HomeAssistant
-    * Node-RED
+    * Web14 OS
+
+### srv02
+* Caracteristicas
+    * RAM 4gb
+    * SSD ?gb (boot)
+    * HDD 4tb (local & gluster)
+* Servicios
     * Nextcloud
+
+### srv03
+* Caracteristicas
+    * RAM 2gb
+    * SSD ?gb (boot)
+    * HDD ?tb (local & gluster)
+* Servicios
     * Pi-Hole
-    * Cups Server
-    * Paperless-NGX
-### Tareas
+
+### srv04
+* Caracteristicas
+    * RAM 4gb
+    * SSD 128gb (boot)
+    * HDD 2tb (local & gluster)
+* Servicios
+
+## Por Instalar
+* Tailscale
+* HomeAssistant
+* Node-RED
+* Cups Server
+* Paperless-NGX
+
+## Tareas
 - Migrar datos a mergerfs
 
-## Huevo23
-(software de ei23.com)
-* Caracteristicas
-    * RAM 4gb
-    * HDD 1tb (boot)
-* Servicios
-    * Tailscale
-    * Github Actions runner
-    * Documentación
-### Tareas
-- Migrar Disco duro a una MicroSD
-- Migrar documentación a Margaret
 
-## DigitalOcean VPS
-* Caracteristicas
-    * RAM 1gb
-    * HDD 20gb
-    * ~ 6€ /mes *(sin iva)*
-* Servicios
-    * Tailscale
-    * Nginx Proxy Manager
-    
-## Work01
-(software de rei3.de)
-* Caracteristicas
-    * RAM 4gb
-    * SDCARD 512gb (boot)
-* Servicios
-    * Github Actions runner
-    * Tailscale
-    * Rei3 (Alpha, Servidor Prod)
-    * Rei3 (Beta, Repositorio custom)
-### Tareas
-- Migrar a Margaret
 
