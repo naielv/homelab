@@ -27,3 +27,9 @@ services:
     # Optional - alternative address used for autodiscovery
     # environment:
     #   - JELLYFIN_PublishedServerUrl=http://example.com
+  nodered:
+    ports:
+      - 1888:1880
+    volumes:
+      - /srv/local/appdata/nodered/data:/data
+    image: nodered/node-red
