@@ -5,18 +5,21 @@ services:
     env_file: stack.env
     networks:
       odoo:
+      proxy:
     depends_on:
       - postgres
     ports:
       - "8069:8069"
     volumes:
-      - /glusterstor/Homelab/odoo/data:/var/lib/odoo
+      - /srv/local/appdata/odoo/data:/var/lib/odoo
   postgres:
     image: postgres:16
     env_file: stack.env
     networks:
       odoo:
     volumes:
-      - /glusterstor/Homelab/odoo/db:/var/lib/postgresql/data/pgdata
+      - /srv/local/appdata/odoo/db:/var/lib/postgresql/data/pgdata
 networks:
   odoo:
+  proxy:
+    external: true
