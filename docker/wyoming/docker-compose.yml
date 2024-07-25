@@ -4,7 +4,7 @@ services:
         ports:
             - 10200:10200
         volumes:
-            - /glusterstor/Homelab/-PiperTTS:/data
+            - /srv/cache/wyoming/piper:/data
         image: rhasspy/wyoming-piper
         command: --voice es_ES-sharvard-medium
     wyoming-openwakeword:
@@ -16,6 +16,6 @@ services:
         ports:
             - 10300:10300
         volumes:
-            - /glusterstor/Homelab/-WhisperSTT:/data
+            - /srv/cache/wyoming/whisper:/data
         image: rhasspy/wyoming-whisper
         command: --model tiny-int8 --language es
