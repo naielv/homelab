@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    user: 0:0 # UserID:GroupID
+    network_mode: 'host'
+    volumes:
+      - /srv/local/appdata/jellyfin/config:/config
+      - /srv/local/appdata/jellyfin/cache:/cache
+      - /srv/local/userdata/Media:/media
+      # - ./volumes/immich/fotos/library:/photos:ro
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://example.com
