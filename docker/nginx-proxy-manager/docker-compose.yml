@@ -3,10 +3,15 @@ services:
   nginxproxymanager:
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
+    networks:
+      proxy:
     ports:
-      - '2080:80'
+      - '80:80'
       - '81:81'
-      - '2443:443'
+      - '443:443'
     volumes:
-      - /glusterstor/Homelab/nginxproxymanager/nginx_proxy_manager/data:/data
-      - /glusterstor/Homelab/nginxproxymanager/nginx_proxy_manager/letsencrypt:/etc/letsencrypt
+      - /srv/local/appdata/nginxproxymanager/nginx_proxy_manager/data:/data
+      - /srv/local/appdata/nginxproxymanager/nginx_proxy_manager/letsencrypt:/etc/letsencrypt
+networks:
+  proxy:
+    external: true
