@@ -1,0 +1,35 @@
+version: '3'
+services:
+  os:
+    image: ghcr.io/naielv/axelos:main
+    ports:
+      - 8099:80
+  nginxproxymanager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - /srv/local/appdata/nginxproxymanager/nginx_proxy_manager/data:/data
+      - /srv/local/appdata/nginxproxymanager/nginx_proxy_manager/letsencrypt:/etc/letsencrypt
+  jellyfin:
+    image: jellyfin/jellyfin
+    user: 0:0 # UserID:GroupID
+    network_mode: 'host'
+    volumes:
+      - /srv/local/appdata/jellyfin/config:/config
+      - /srv/local/appdata/jellyfin/cache:/cache
+      - /srv/local/userdata/Media:/media
+      # - ./volumes/immich/fotos/library:/photos:ro
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    # environment:
+    #   - JELLYFIN_PublishedServerUrl=http://example.com
+  nodered:
+    ports:
+      - 1888:1880
+    volumes:
+      - /srv/local/appdata/nodered/data:/data
+    image: nodered/node-red
