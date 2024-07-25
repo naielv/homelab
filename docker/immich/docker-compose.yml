@@ -19,6 +19,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - stack.env
+    networks:
+      proxy:
     ports:
       - 2283:3001
     depends_on:
@@ -62,3 +64,6 @@ services:
 
 volumes:
   model-cache:
+networks:
+  proxy:
+    external: true
