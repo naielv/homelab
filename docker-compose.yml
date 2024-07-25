@@ -33,3 +33,23 @@ services:
     volumes:
       - /srv/local/appdata/nodered/data:/data
     image: nodered/node-red
+  odoo:
+    image: odoo:17.0
+    env_file: odoo.env
+    networks:
+      odoo:
+    depends_on:
+      - postgres
+    ports:
+      - "8069:8069"
+    volumes:
+      - /srv/local/appdata/odoo/data:/var/lib/odoo
+  postgres:
+    image: postgres:16
+    env_file: odoo.env
+    networks:
+      odoo:
+    volumes:
+      - /srv/local/appdata/odoo/db:/var/lib/postgresql/data/pgdata
+networks:
+  odoo:
