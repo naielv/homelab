@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Weekly Tasks
+name: Tareas Semanales
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   - cron: '14 3 * * 6'
 
 jobs:
-  backup:
-    name: Hacer copia de seguridad
+  accounts:
+    name: Configurar las cuentas
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4 
@@ -22,4 +22,19 @@ jobs:
         port: 22
         username: root
         privateKey: ${{ secrets.PRIVATE_KEY }} 
-        command: 'cd ~/homelab && git pull && python3 tasks/backup.py'
+        command: 'cd ~/homelab && git pull && python3 tasks/accounts.py'
+  backup:
+    name: Iniciar las copias de seguridad
+    runs-on: self-hosted
+    needs: accounts
+    steps:
+    - uses: actions/checkout@v4 
+    - name: Action SSH
+      id: action-ssh
+      uses: tiyee/action-ssh@release
+      with:
+        host: dietpi
+        port: 22
+        username: root
+        privateKey: ${{ secrets.PRIVATE_KEY }} 
+        command: 'cd ~/homelab && git pull && screen -dmS weekly_backup python3 tasks/backup.py'
