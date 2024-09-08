@@ -1,6 +1,6 @@
 import requests
 import os
-from yaml import safe_loads
+from yaml import safe_load
 import json
 def runAccountCreation(config):
   for account in config["Cuentas"]:
@@ -22,5 +22,5 @@ def runAccountCreation(config):
       json.dump(annapurnaLicense, open(f"/mnt/storage/Annapurna/License/{lid}.json", "w"))
   notify(f'He activado las cuentas del servidor.')
 if __name__ == "__main__":
-  config = safe_loads("/mnt/storage/HomelabConfig.yml")
+  config = safe_load("/mnt/storage/HomelabConfig.yml")
   runAccountCreation(config)
