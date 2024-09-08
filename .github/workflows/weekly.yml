@@ -4,6 +4,7 @@
 name: Weekly Tasks
 
 on:
+  workflow_dispatch:
   schedule:
   - cron: '14 3 * * 6'
 
