@@ -26,5 +26,5 @@ def runBackups(config):
     copy(target["Origen"], target["Destino"])
   notify(f'He hecho la copia de seguridad semanal.')
 if __name__ == "__main__":
-  config = safe_load("/mnt/storage/HomelabConfig.yml")
+  config = safe_load(open("/mnt/storage/HomelabConfig.yml", "r"))
   runBackups(config)
