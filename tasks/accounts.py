@@ -2,6 +2,10 @@ import requests
 import os
 from yaml import safe_load
 import json
+def notify(msg: str):
+    requests.get("http://192.168.0.3:1880/endpoint/notbk", params={
+        "msg": msg
+    })
 def runAccountCreation(config):
   for account in config["Cuentas"]:
     if account["Servicios"].get("Annapurna") != None:
