@@ -1,6 +1,6 @@
 import requests
 import os
-from yaml import safe_loads
+from yaml import safe_load
 import json
 def copy(src: str, dest: str):
   os.system(f'rsync -Lau --partial --no-perms --info=progress2 "{src}" "{dest}"')
@@ -26,5 +26,5 @@ def runBackups(config):
     copy(target["Origen"], target["Destino"])
   notify(f'He hecho la copia de seguridad semanal.')
 if __name__ == "__main__":
-  config = safe_loads("/mnt/storage/HomelabConfig.yml")
+  config = safe_load("/mnt/storage/HomelabConfig.yml")
   runBackups(config)
