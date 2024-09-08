@@ -22,5 +22,5 @@ def runAccountCreation(config):
       json.dump(annapurnaLicense, open(f"/mnt/storage/Annapurna/License/{lid}.json", "w"))
   notify(f'He activado las cuentas del servidor.')
 if __name__ == "__main__":
-  config = safe_load(open("/mnt/storage/HomelabConfig.yml", "r"))
+  config = safe_load(open("/mnt/storage/HomelabConfig.yml", "r").read())
   runAccountCreation(config)
