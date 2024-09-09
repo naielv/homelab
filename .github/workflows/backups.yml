@@ -1,0 +1,22 @@
+name: Copias de seguridad
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '14 3 * * 6'
+
+jobs:
+  backup:
+    name: Iniciar las copias de seguridad
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v4 
+    - name: Action SSH
+      id: action-ssh
+      uses: tiyee/action-ssh@v1.0.1
+      with:
+        host: dietpi
+        port: 22
+        username: root
+        privateKey: ${{ secrets.PRIVATE_KEY }} 
+        command: 'cd ~/homelab && python3 tasks/backup.py'
