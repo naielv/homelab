@@ -1,9 +1,0 @@
-version: "3"
-services:
-    nodered:
-        ports:
-            - 1888:1880
-        volumes:
-            - /srv/local/appdata/nodered/data:/data
-        container_name: nodered
-        image: nodered/node-red

@@ -1,6 +1,0 @@
-version: '3'
-services:
-  os:
-    image: ghcr.io/naielv/axelos:main
-    ports:
-      - 8099:80
