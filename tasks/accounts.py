@@ -15,7 +15,7 @@ def runAccountCreation(config):
           "last": account["Nombre"]["Apellido"],
           "display": account["Nombre"]["Preferido"]
         },
-        "fs_baseurl": account["Servicios"]["Annapurna"]["Identificador de FS"]
+        "fs_baseurl": account["Servicios"]["Annapurna"]["Identificador de FS"] + "/fs"
       }
       lid = str(account["Servicios"]["Annapurna"]["Licencia"]).upper()
       fid = account["Servicios"]["Annapurna"]["Identificador de FS"]
