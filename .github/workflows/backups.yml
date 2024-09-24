@@ -3,7 +3,7 @@ name: Copias de seguridad
 on:
   workflow_dispatch:
   schedule:
-  - cron: '14 3 * * 6'
+  - cron: '14 1 * * 6'
 
 jobs:
   backup:
