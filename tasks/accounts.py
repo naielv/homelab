@@ -15,10 +15,10 @@ def runAccountCreation(config):
           "last": account["Nombre"]["Apellido"],
           "display": account["Nombre"]["Preferido"]
         },
-        "fs_baseurl": account["Servicios"]["Annapurna"]["Identificador de FS"] + "/fs"
+        "fs_baseurl": account["Servicios"]["Annapurna"] + "/fs"
       }
-      lid = str(account["Servicios"]["Annapurna"]["Licencia"]).upper()
-      fid = account["Servicios"]["Annapurna"]["Identificador de FS"]
+      lid = str(account["Servicios"]["Annapurna"]).upper()
+      fid = account["Servicios"]["Annapurna"]
       try:
         os.mkdir(f"/mnt/storage/Annapurna/L1/{fid}/")
       except:
