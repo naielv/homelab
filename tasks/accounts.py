@@ -15,6 +15,7 @@ def runAccountCreation(config):
           "last": account["Nombre"]["Apellido"],
           "display": account["Nombre"]["Preferido"]
         },
+        "hash": account["Password"]["bcrypt"]
         "fs_baseurl": account["Servicios"]["Annapurna"] + "/fs"
       }
       lid = str(account["Servicios"]["Annapurna"]).upper()
